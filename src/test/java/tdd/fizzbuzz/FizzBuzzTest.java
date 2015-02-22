@@ -3,6 +3,7 @@ package tdd.fizzbuzz;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import tdd.fizbuzz.FizzBuzz;
@@ -41,42 +42,44 @@ public class FizzBuzzTest {
     @Test
     @Parameters(method = "provideNumbersDivisibleByThree")
     public void shouldReturnFizzWhenNIsDivisibleByThree(int n) {
-        fizzBuzz.say(n);
         assertEquals(FIZZ, fizzBuzz.say(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByFive")
     public void shouldReturnFizzWhenNIsDivisibleByFive(int n) {
-        fizzBuzz.say(n);
         assertEquals(BUZZ, fizzBuzz.say(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByFiveAndThree")
     public void shouldReturnFizzWhenNIsDivisibleByFiveAndThree(int n) {
-        fizzBuzz.say(n);
         assertEquals(FIZZBUZZ, fizzBuzz.say(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByFiveAndContainingThatDigit")
     public void shouldReturnFizzWhenNIsDivisibleByFiveAndContainsThatDigit(int n) {
-        fizzBuzz.sayWhenContains(n);
-        assertEquals(BUZZ, fizzBuzz.say(n));
+        assertEquals(BUZZ, fizzBuzz.sayWhenContains(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByThreeAndContainingThatDigit")
     public void shouldReturnFizzWhenNIsDivisibleByThreeAndContainsThatDigit(int n) {
-        fizzBuzz.sayWhenContains(n);
-        assertEquals(BUZZ, fizzBuzz.say(n));
+        assertEquals(FIZZ, fizzBuzz.sayWhenContains(n));
     }
 
 
     @Test
+    @Ignore
     public void shouldPrintUpToOneHundred() {
         fizzBuzz.printUpToOneHundred();
+    }
+
+    @Test
+    //@Ignore
+    public void shouldPrintUpToOneHundredWhenContains() {
+        fizzBuzz.printUpToOneHundredWhenContains();
     }
 
     private Object[] provideNumbersDivisibleByThree() {
@@ -97,9 +100,9 @@ public class FizzBuzzTest {
                 $(6),
                 $(9),
                 $(27),
-                $(30),
                 $(31),
-                $(39)
+                $(39),
+                $(53)
         );
     }
 
@@ -117,19 +120,9 @@ public class FizzBuzzTest {
 
     private Object[] provideNumbersDivisibleByFiveAndContainingThatDigit() {
         return $(
-                $(5),
-                $(10),
-                $(20),
-                $(25),
-                $(50),
-                $(55),
-                $(70),
-                $(152),
-                $(252),
-                $(51),
-                $(50),
-                $(53),
-                $(57)
+                $(52),
+                $(59),
+                $(56)
         );
     }
 
