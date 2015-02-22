@@ -1,5 +1,5 @@
 package tdd.fizbuzz;
 
-public class FizzBuzz {
-
+public interface FizzBuzz {
+    void say(int n);
 }
