@@ -11,7 +11,6 @@ import tdd.fizbuzz.FizzBuzzImpl;
 
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
-import static junitparams.JUnitParamsRunner.$;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -40,35 +39,46 @@ public class FizzBuzzTest {
     }
 
     @Test
-    @Parameters(method = "provideNumbersDivisibleByThree")
+    @Parameters({"3", "6", "9", "27", "54", "72", "99" })
     public void shouldReturnFizzWhenNIsDivisibleByThree(int n) {
         assertEquals(FIZZ, fizzBuzz.say(n));
     }
 
     @Test
-    @Parameters(method = "provideNumbersDivisibleByFive")
+    @Parameters({"5", "10", "20", "25", "55", "50", "70" })
     public void shouldReturnFizzWhenNIsDivisibleByFive(int n) {
         assertEquals(BUZZ, fizzBuzz.say(n));
     }
 
     @Test
-    @Parameters(method = "provideNumbersDivisibleByFiveAndThree")
+    @Parameters({"15", "30", "45", "60", "75", "90" })
     public void shouldReturnFizzWhenNIsDivisibleByFiveAndThree(int n) {
         assertEquals(FIZZBUZZ, fizzBuzz.say(n));
     }
 
     @Test
-    @Parameters(method = "provideNumbersDivisibleByFiveAndContainingThatDigit")
+    @Parameters({"2", "4"})
+    public void shouldSayThatNumber(int n) {
+        assertEquals(String.valueOf(n), fizzBuzz.say(n));
+    }
+
+    @Test
+    @Parameters({"2", "4"})
+    public void shouldSayThatNumberWithWhenContains(int n) {
+        assertEquals(String.valueOf(n), fizzBuzz.sayWhenContains(n));
+    }
+
+    @Test
+    @Parameters({"52", "59", "56"})
     public void shouldReturnFizzWhenNIsDivisibleByFiveAndContainsThatDigit(int n) {
         assertEquals(BUZZ, fizzBuzz.sayWhenContains(n));
     }
 
     @Test
-    @Parameters(method = "provideNumbersDivisibleByThreeAndContainingThatDigit")
+    @Parameters({"3", "6", "9", "27", "31", "39", "53" })
     public void shouldReturnFizzWhenNIsDivisibleByThreeAndContainsThatDigit(int n) {
         assertEquals(FIZZ, fizzBuzz.sayWhenContains(n));
     }
-
 
     @Test
     @Ignore
@@ -80,63 +90,6 @@ public class FizzBuzzTest {
     @Ignore
     public void shouldPrintUpToOneHundredWhenContains() {
         fizzBuzz.printUpToOneHundredWhenContains();
-    }
-
-    private Object[] provideNumbersDivisibleByThree() {
-        return $(
-                $(3),
-                $(6),
-                $(9),
-                $(27),
-                $(54),
-                $(72),
-                $(99)
-        );
-    }
-
-    private Object[] provideNumbersDivisibleByThreeAndContainingThatDigit() {
-        return $(
-                $(3),
-                $(6),
-                $(9),
-                $(27),
-                $(31),
-                $(39),
-                $(53)
-        );
-    }
-
-    private Object[] provideNumbersDivisibleByFive() {
-        return $(
-                $(5),
-                $(10),
-                $(20),
-                $(25),
-                $(50),
-                $(55),
-                $(70)
-        );
-    }
-
-    private Object[] provideNumbersDivisibleByFiveAndContainingThatDigit() {
-        return $(
-                $(52),
-                $(59),
-                $(56)
-        );
-    }
-
-
-
-    private Object[] provideNumbersDivisibleByFiveAndThree() {
-        return $(
-                $(15),
-                $(30),
-                $(45),
-                $(60),
-                $(75),
-                $(90)
-        );
     }
 
 }
