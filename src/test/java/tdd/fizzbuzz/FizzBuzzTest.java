@@ -77,7 +77,7 @@ public class FizzBuzzTest {
     }
 
     @Test
-    //@Ignore
+    @Ignore
     public void shouldPrintUpToOneHundredWhenContains() {
         fizzBuzz.printUpToOneHundredWhenContains();
     }
