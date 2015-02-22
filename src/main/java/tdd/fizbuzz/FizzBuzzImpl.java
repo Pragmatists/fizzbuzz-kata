@@ -22,6 +22,14 @@ public class FizzBuzzImpl implements FizzBuzz {
         }
     }
 
+    @Override
+    public void printUpToOneHundred() {
+        for (int i = 1; i < 101; ++i) {
+            String res = say(i);
+            System.out.println(res);
+        }
+    }
+
     private boolean isDivisibleByThree(int n) {
         return n % 3 == 0;
     }

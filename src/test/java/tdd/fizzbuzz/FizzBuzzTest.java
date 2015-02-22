@@ -8,8 +8,6 @@ import org.junit.runner.RunWith;
 import tdd.fizbuzz.FizzBuzz;
 import tdd.fizbuzz.FizzBuzzImpl;
 
-import java.net.MalformedURLException;
-
 import static com.googlecode.catchexception.CatchException.catchException;
 import static com.googlecode.catchexception.CatchException.caughtException;
 import static junitparams.JUnitParamsRunner.$;
@@ -53,6 +51,11 @@ public class FizzBuzzTest {
     public void shouldReturnFizzWhenNIsDividableByFiveAndThree(int n) {
         fizzBuzz.say(n);
         assertEquals(FIZZBUZZ, fizzBuzz.say(n));
+    }
+
+    @Test
+    public void shouldPrintUpToOneHundred() {
+        fizzBuzz.printUpToOneHundred();
     }
 
     private Object[] provideNumbersDivisibleByThree() {
