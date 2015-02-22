@@ -1,5 +1,5 @@
 package tdd.fizbuzz;
 
 public interface FizzBuzz {
-    void say(int n);
+    String say(int n);
 }
