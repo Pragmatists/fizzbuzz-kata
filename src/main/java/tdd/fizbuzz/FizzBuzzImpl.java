@@ -10,4 +10,16 @@ public class FizzBuzzImpl implements FizzBuzz {
         Preconditions.checkArgument(n > 0, WRONG_ARGUMENT);
         return "";
     }
+
+    private boolean isDivisibleByThree(int n) {
+        return n % 3 == 0;
+    }
+
+    private boolean isDivisibleByFive(int n) {
+        return n % 5 == 0;
+    }
+
+    private boolean isDivisibleByThreeAndFive(int n) {
+        return isDivisibleByFive(n) && isDivisibleByThree(n);
+    }
 }
