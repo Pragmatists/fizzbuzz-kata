@@ -23,6 +23,12 @@ public class FizzBuzzImpl implements FizzBuzz {
     }
 
     @Override
+    public String sayWhenContains(int n) {
+        Preconditions.checkArgument(n > 0, WRONG_ARGUMENT);
+        return "";
+    }
+
+    @Override
     public void printUpToOneHundred() {
         for (int i = 1; i < 101; ++i) {
             String res = say(i);

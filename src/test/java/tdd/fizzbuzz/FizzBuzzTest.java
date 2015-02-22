@@ -33,6 +33,12 @@ public class FizzBuzzTest {
     }
 
     @Test
+    public void shouldThrowExceptionWhenCheckingForContainsAndNIsLessThanZero() {
+        catchException(fizzBuzz).sayWhenContains(-1);
+        assertTrue(caughtException() instanceof IllegalArgumentException);
+    }
+
+    @Test
     @Parameters(method = "provideNumbersDivisibleByThree")
     public void shouldReturnFizzWhenNIsDividableByThree(int n) {
         fizzBuzz.say(n);
