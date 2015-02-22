@@ -35,13 +35,27 @@ public class FizzBuzzTest {
     }
 
     @Test
-    @Parameters(method = "provideNumbersDividableByThree")
+    @Parameters(method = "provideNumbersDivisibleByThree")
     public void shouldReturnFizzWhenNIsDividableByThree(int n) {
         fizzBuzz.say(n);
         assertEquals(FIZZ, fizzBuzz.say(n));
     }
 
-    private Object[] provideNumbersDividableByThree() {
+    @Test
+    @Parameters(method = "provideNumbersDivisibleByFive")
+    public void shouldReturnFizzWhenNIsDividableByFive(int n) {
+        fizzBuzz.say(n);
+        assertEquals(BUZZ, fizzBuzz.say(n));
+    }
+
+    @Test
+    @Parameters(method = "provideNumbersDivisibleByFiveAndThree")
+    public void shouldReturnFizzWhenNIsDividableByFiveAndThree(int n) {
+        fizzBuzz.say(n);
+        assertEquals(FIZZBUZZ, fizzBuzz.say(n));
+    }
+
+    private Object[] provideNumbersDivisibleByThree() {
         return $(
                 $(3),
                 $(6),
@@ -50,6 +64,29 @@ public class FizzBuzzTest {
                 $(54),
                 $(72),
                 $(99)
+        );
+    }
+
+    private Object[] provideNumbersDivisibleByFive() {
+        return $(
+                $(5),
+                $(10),
+                $(20),
+                $(25),
+                $(50),
+                $(55),
+                $(70)
+        );
+    }
+
+    private Object[] provideNumbersDivisibleByFiveAndThree() {
+        return $(
+                $(15),
+                $(30),
+                $(45),
+                $(60),
+                $(75),
+                $(90)
         );
     }
 
