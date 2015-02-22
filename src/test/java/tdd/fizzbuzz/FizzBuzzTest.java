@@ -40,24 +40,39 @@ public class FizzBuzzTest {
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByThree")
-    public void shouldReturnFizzWhenNIsDividableByThree(int n) {
+    public void shouldReturnFizzWhenNIsDivisibleByThree(int n) {
         fizzBuzz.say(n);
         assertEquals(FIZZ, fizzBuzz.say(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByFive")
-    public void shouldReturnFizzWhenNIsDividableByFive(int n) {
+    public void shouldReturnFizzWhenNIsDivisibleByFive(int n) {
         fizzBuzz.say(n);
         assertEquals(BUZZ, fizzBuzz.say(n));
     }
 
     @Test
     @Parameters(method = "provideNumbersDivisibleByFiveAndThree")
-    public void shouldReturnFizzWhenNIsDividableByFiveAndThree(int n) {
+    public void shouldReturnFizzWhenNIsDivisibleByFiveAndThree(int n) {
         fizzBuzz.say(n);
         assertEquals(FIZZBUZZ, fizzBuzz.say(n));
     }
+
+    @Test
+    @Parameters(method = "provideNumbersDivisibleByFiveAndContainingThatDigit")
+    public void shouldReturnFizzWhenNIsDivisibleByFiveAndContainsThatDigit(int n) {
+        fizzBuzz.sayWhenContains(n);
+        assertEquals(BUZZ, fizzBuzz.say(n));
+    }
+
+    @Test
+    @Parameters(method = "provideNumbersDivisibleByThreeAndContainingThatDigit")
+    public void shouldReturnFizzWhenNIsDivisibleByThreeAndContainsThatDigit(int n) {
+        fizzBuzz.sayWhenContains(n);
+        assertEquals(BUZZ, fizzBuzz.say(n));
+    }
+
 
     @Test
     public void shouldPrintUpToOneHundred() {
@@ -76,6 +91,18 @@ public class FizzBuzzTest {
         );
     }
 
+    private Object[] provideNumbersDivisibleByThreeAndContainingThatDigit() {
+        return $(
+                $(3),
+                $(6),
+                $(9),
+                $(27),
+                $(30),
+                $(31),
+                $(39)
+        );
+    }
+
     private Object[] provideNumbersDivisibleByFive() {
         return $(
                 $(5),
@@ -87,6 +114,26 @@ public class FizzBuzzTest {
                 $(70)
         );
     }
+
+    private Object[] provideNumbersDivisibleByFiveAndContainingThatDigit() {
+        return $(
+                $(5),
+                $(10),
+                $(20),
+                $(25),
+                $(50),
+                $(55),
+                $(70),
+                $(152),
+                $(252),
+                $(51),
+                $(50),
+                $(53),
+                $(57)
+        );
+    }
+
+
 
     private Object[] provideNumbersDivisibleByFiveAndThree() {
         return $(
